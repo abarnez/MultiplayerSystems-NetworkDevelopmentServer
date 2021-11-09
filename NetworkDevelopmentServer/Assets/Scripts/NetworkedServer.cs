@@ -64,6 +64,22 @@ public class NetworkedServer : MonoBehaviour
         Debug.Log("msg recieved = " + msg + ".  connection id = " + id);
 
         string[] csv = msg.Split(',');
-        int signifier = int.Parse(csv[0]);               
+        int signifier = int.Parse(csv[0]);
+        if (signifier == ClientToServerChatSignifiers.GG)
+        {
+            SendMessageToClient(ServerToClientChatSignifiers.GG + "", id);
+        }
+    }
+
+    public static class ClientToServerChatSignifiers
+    {
+        public const int GG = 1;
+        public const int Rematch = 2;
+    }
+
+    public static class ServerToClientChatSignifiers
+    {
+        public const int GG = 1;
+        public const int Rematch = 2;
     }
 }
