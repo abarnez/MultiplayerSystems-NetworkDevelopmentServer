@@ -13,6 +13,7 @@ public class NetworkedServer : MonoBehaviour
     int hostID;
     int socketPort = 5491;
     int playersInRoom;
+    bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,7 +94,6 @@ public class NetworkedServer : MonoBehaviour
                 SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id + 1);
             SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id);
         }
-
         if (signifier == ServerToClientGameSignifiers.JoinGame)
         {
             if (playersInRoom<2) {
@@ -104,6 +104,17 @@ public class NetworkedServer : MonoBehaviour
         if (signifier == ServerToClientGameSignifiers.JoinAsObserver)
         {
             SendMessageToClient(ServerToClientGameSignifiers.JoinAsObserver + "", id);
+        }
+        if (signifier == ServerToClientMoveSignifiers.Pos1)
+        {
+            if (!pos1)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id);
+                    pos1 = true;
+                }
+            }
         }
     }
 
@@ -125,5 +136,41 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int JoinGame = 1;
         public const int JoinAsObserver = 2;
+    }
+
+    public static class ServerToClientTurnSignifiers
+    {
+        public const int IsMyTurn = 1;
+        public const int NotMyTurn = 2;
+    }
+    public static class ClientToServerTurnSignifiers
+    {
+        public const int IsMyTurn = 1;
+        public const int NotMyTurn = 2;
+    }
+    public static class ServerToClientMoveSignifiers
+    {
+        public const int Pos1 = 1;
+        public const int Pos2 = 2;
+        public const int Pos3 = 3;
+        public const int Pos4 = 4;
+        public const int Pos5 = 5;
+        public const int Pos6 = 6;
+        public const int Pos7 = 7;
+        public const int Pos8 = 8;
+        public const int Pos9 = 9;
+    }
+
+    public static class ClientToServerMoveSignifiers
+    {
+        public const int Pos1 = 1;
+        public const int Pos2 = 2;
+        public const int Pos3 = 3;
+        public const int Pos4 = 4;
+        public const int Pos5 = 5;
+        public const int Pos6 = 6;
+        public const int Pos7 = 7;
+        public const int Pos8 = 8;
+        public const int Pos9 = 9;
     }
 }
