@@ -69,6 +69,10 @@ public class NetworkedServer : MonoBehaviour
         {
             SendMessageToClient(ServerToClientChatSignifiers.GG + "", id);
         }
+        if (signifier == ServerToClientGameSignifiers.JoinGame)
+        {
+            SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
+        }
     }
 
     public static class ClientToServerChatSignifiers
@@ -81,5 +85,11 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int GG = 1;
         public const int Rematch = 2;
+    }
+
+    public static class ServerToClientGameSignifiers
+    {
+        public const int JoinGame = 1;
+        public const int JoinAsObserver = 2;
     }
 }
