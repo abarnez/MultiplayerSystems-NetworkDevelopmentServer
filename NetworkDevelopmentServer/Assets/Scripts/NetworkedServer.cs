@@ -12,6 +12,7 @@ public class NetworkedServer : MonoBehaviour
     int unreliableChannelID;
     int hostID;
     int socketPort = 5491;
+    int playersInRoom;
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +96,10 @@ public class NetworkedServer : MonoBehaviour
 
         if (signifier == ServerToClientGameSignifiers.JoinGame)
         {
-            SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
+            if (playersInRoom<2) {
+                SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
+                playersInRoom += 1;
+            }
         }
         if (signifier == ServerToClientGameSignifiers.JoinAsObserver)
         {
