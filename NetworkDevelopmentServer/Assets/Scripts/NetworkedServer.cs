@@ -74,6 +74,25 @@ public class NetworkedServer : MonoBehaviour
             SendMessageToClient(ServerToClientChatSignifiers.GG + "", id+1);
             SendMessageToClient(ServerToClientChatSignifiers.GG + "", id);
         }
+        if (signifier == ClientToServerChatSignifiers.Rematch)
+        {
+            if (id == 2)
+                SendMessageToClient(ServerToClientChatSignifiers.Rematch + "", id);
+            SendMessageToClient(ServerToClientChatSignifiers.Rematch + "", id - 1);
+            if (id == 1)
+                SendMessageToClient(ServerToClientChatSignifiers.Rematch + "", id + 1);
+            SendMessageToClient(ServerToClientChatSignifiers.Rematch + "", id);
+        }
+        if (signifier == ClientToServerChatSignifiers.EZCLap)
+        {
+            if (id == 2)
+                SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id);
+            SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id - 1);
+            if (id == 1)
+                SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id + 1);
+            SendMessageToClient(ServerToClientChatSignifiers.EZCLap + "", id);
+        }
+
         if (signifier == ServerToClientGameSignifiers.JoinGame)
         {
             SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
@@ -84,12 +103,14 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int GG = 1;
         public const int Rematch = 2;
+        public const int EZCLap = 3;
     }
 
     public static class ServerToClientChatSignifiers
     {
         public const int GG = 1;
         public const int Rematch = 2;
+        public const int EZCLap = 3;
     }
 
     public static class ServerToClientGameSignifiers
