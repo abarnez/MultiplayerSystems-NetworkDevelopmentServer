@@ -67,6 +67,11 @@ public class NetworkedServer : MonoBehaviour
         int signifier = int.Parse(csv[0]);
         if (signifier == ClientToServerChatSignifiers.GG)
         {
+            if(id==2)
+            SendMessageToClient(ServerToClientChatSignifiers.GG + "", id);
+            SendMessageToClient(ServerToClientChatSignifiers.GG + "", id-1);
+            if(id==1)
+            SendMessageToClient(ServerToClientChatSignifiers.GG + "", id+1);
             SendMessageToClient(ServerToClientChatSignifiers.GG + "", id);
         }
         if (signifier == ServerToClientGameSignifiers.JoinGame)
