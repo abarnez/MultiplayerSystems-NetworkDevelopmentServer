@@ -97,6 +97,10 @@ public class NetworkedServer : MonoBehaviour
         {
             SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
         }
+        if (signifier == ServerToClientGameSignifiers.JoinAsObserver)
+        {
+            SendMessageToClient(ServerToClientGameSignifiers.JoinAsObserver + "", id);
+        }
     }
 
     public static class ClientToServerChatSignifiers
