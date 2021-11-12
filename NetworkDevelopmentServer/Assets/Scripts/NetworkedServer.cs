@@ -114,7 +114,7 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id);
-                    Debug.Log("it fired");
+
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id + 1);
                     pos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -123,12 +123,13 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id);
-                    Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id);
+                    
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id - 1);
                     pos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+                    Debug.Log("it messed up");
 
                 }
             }
@@ -149,9 +150,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id - 1);
                     pos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -175,9 +176,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id - 1);
                     pos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -201,9 +202,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id - 1);
                     pos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -227,9 +228,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id - 1);
                     pos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -253,9 +254,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id - 1);
                     pos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -279,9 +280,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id - 1);
                     pos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -305,9 +306,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id - 1);
                     pos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -331,9 +332,9 @@ public class NetworkedServer : MonoBehaviour
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id);
                     Debug.Log("it fired");
-                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id - 1);
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id - 1);
                     pos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
@@ -404,5 +405,31 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int IsMyTurn = 20;
         public const int NotMyTurn = 21;
+    }
+
+    public static class ServerToClientMoveSignifiers2
+    {
+        public const int Pos1 = 22;
+        public const int Pos2 = 23;
+        public const int Pos3 = 24;
+        public const int Pos4 = 25;
+        public const int Pos5 = 26;
+        public const int Pos6 = 27;
+        public const int Pos7 = 28;
+        public const int Pos8 = 29;
+        public const int Pos9 = 30;
+    }
+
+    public static class ClientToServerMoveSignifiers2
+    {
+        public const int Pos1 = 22;
+        public const int Pos2 = 23;
+        public const int Pos3 = 24;
+        public const int Pos4 = 25;
+        public const int Pos5 = 26;
+        public const int Pos6 = 27;
+        public const int Pos7 = 28;
+        public const int Pos8 = 29;
+        public const int Pos9 = 30;
     }
 }
