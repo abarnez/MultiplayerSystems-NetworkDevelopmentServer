@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
-using System.IO;
 
 public class NetworkedServer : MonoBehaviour
 {
@@ -130,6 +127,214 @@ public class NetworkedServer : MonoBehaviour
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id - 1);
                     pos1 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos2)
+        {
+            if (!pos2)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id + 1);
+                    pos2 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id - 1);
+                    pos2 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos3)
+        {
+            if (!pos3)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id + 1);
+                    pos2 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id - 1);
+                    pos3 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if(signifier == ClientToServerMoveSignifiers.Pos4)
+        {
+            if (!pos4)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id + 1);
+                    pos4 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id - 1);
+                    pos4 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos5)
+        {
+            if (!pos5)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id + 1);
+                    pos5 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id - 1);
+                    pos5 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos6)
+        {
+            if (!pos6)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id + 1);
+                    pos6 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id - 1);
+                    pos6 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos7)
+        {
+            if (!pos7)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id + 1);
+                    pos7 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id - 1);
+                    pos7 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos8)
+        {
+            if (!pos8)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id + 1);
+                    pos8 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id - 1);
+                    pos8 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
+
+                }
+            }
+        }
+        if (signifier == ClientToServerMoveSignifiers.Pos9)
+        {
+            if (!pos9)
+            {
+                if (id == 1)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id + 1);
+                    pos9 = true;
+                    SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
+                    SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
+
+                }
+                if (id == 2)
+                {
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id);
+                    Debug.Log("it fired");
+                    SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id - 1);
+                    pos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
