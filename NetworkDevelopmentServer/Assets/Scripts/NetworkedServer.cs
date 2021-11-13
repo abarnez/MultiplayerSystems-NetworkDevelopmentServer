@@ -97,9 +97,12 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
                 SendMessageToClient(ServerToClientTurnSignifiers.IsMyTurn + "", id);
+                SendMessageToClient(ServerToClientXSignifiers.X + "", id);
             } if(id == 2) {        
                 SendMessageToClient(ServerToClientGameSignifiers.JoinGame + "", id);
                 SendMessageToClient(ServerToClientTurnSignifiers.NotMyTurn + "", id);
+                SendMessageToClient(ServerToClientXSignifiers.O + "", id);
+
             }
           
         }
@@ -431,5 +434,16 @@ public class NetworkedServer : MonoBehaviour
         public const int Pos7 = 28;
         public const int Pos8 = 29;
         public const int Pos9 = 30;
+    }
+
+    public static class ClientToServerXSignifiers
+    {
+        public const int X = 31;
+        public const int O = 32;
+    }
+    public static class ServerToClientXSignifiers
+    {
+        public const int X = 31;
+        public const int O = 32;
     }
 }
