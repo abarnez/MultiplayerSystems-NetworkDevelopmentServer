@@ -11,6 +11,7 @@ public class NetworkedServer : MonoBehaviour
     int socketPort = 5491;
     public int playersInRoom;
     bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
+    bool xpos1, xpos2, xpos3, xpos4, xpos5, xpos6, xpos7, xpos8, xpos9;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,7 +113,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos1)
         {
-            if (!pos1)
+            if (!pos1 && !xpos1)
             {
                 if (id == 1)
                 {
@@ -129,7 +130,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id);
                     
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id - 1);
-                    pos1 = true;
+                    xpos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
                     Debug.Log("it messed up");
@@ -139,7 +140,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos2)
         {
-            if (!pos2)
+            if (!pos2 && !xpos2)
             {
                 if (id == 1)
                 {
@@ -156,7 +157,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id - 1);
-                    pos2 = true;
+                    xpos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -165,7 +166,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos3)
         {
-            if (!pos3)
+            if (!pos3 && !xpos3)
             {
                 if (id == 1)
                 {
@@ -182,7 +183,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id - 1);
-                    pos3 = true;
+                    xpos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -191,7 +192,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if(signifier == ClientToServerMoveSignifiers.Pos4)
         {
-            if (!pos4)
+            if (!pos4 && !xpos4)
             {
                 if (id == 1)
                 {
@@ -208,7 +209,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id - 1);
-                    pos4 = true;
+                    xpos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -217,7 +218,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos5)
         {
-            if (!pos5)
+            if (!pos5 && !xpos5)
             {
                 if (id == 1)
                 {
@@ -234,7 +235,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id - 1);
-                    pos5 = true;
+                    xpos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -243,7 +244,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos6)
         {
-            if (!pos6)
+            if (!pos6 && !xpos6)
             {
                 if (id == 1)
                 {
@@ -260,7 +261,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id - 1);
-                    pos6 = true;
+                    xpos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -269,7 +270,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos7)
         {
-            if (!pos7)
+            if (!pos7 && !xpos7)
             {
                 if (id == 1)
                 {
@@ -286,7 +287,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id - 1);
-                    pos7 = true;
+                    xpos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -295,7 +296,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos8)
         {
-            if (!pos8)
+            if (!pos8 && !xpos8)
             {
                 if (id == 1)
                 {
@@ -312,7 +313,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id - 1);
-                    pos8 = true;
+                    xpos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
@@ -321,7 +322,7 @@ public class NetworkedServer : MonoBehaviour
         }
         if (signifier == ClientToServerMoveSignifiers.Pos9)
         {
-            if (!pos9)
+            if (!pos9 && !xpos9)
             {
                 if (id == 1)
                 {
@@ -338,7 +339,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id - 1);
-                    pos9 = true;
+                    xpos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
 
