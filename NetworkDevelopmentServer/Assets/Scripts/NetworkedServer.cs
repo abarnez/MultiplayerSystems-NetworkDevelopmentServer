@@ -10,7 +10,8 @@ public class NetworkedServer : MonoBehaviour
     int hostID;
     int socketPort = 5491;
     public int playersInRoom;
-    bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
+    public bool p1Won, p2Won;
+    public bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
     bool xpos1, xpos2, xpos3, xpos4, xpos5, xpos6, xpos7, xpos8, xpos9;
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,12 @@ public class NetworkedServer : MonoBehaviour
         byte error = 0;
 
         NetworkEventType recNetworkEvent = NetworkTransport.Receive(out recHostID, out recConnectionID, out recChannelID, recBuffer, bufferSize, out dataSize, out error);
+
+        if(pos1 && pos2 && pos3)
+        {
+            p1Won = true;
+        }
+
 
         switch (recNetworkEvent)
         {
@@ -118,7 +125,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id);
-
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", id + 1);
                     pos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -173,7 +179,7 @@ public class NetworkedServer : MonoBehaviour
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id);
                     Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id + 1);
-                    pos2 = true;
+                    pos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
 
