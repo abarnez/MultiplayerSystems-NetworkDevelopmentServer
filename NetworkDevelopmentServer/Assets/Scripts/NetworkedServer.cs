@@ -13,6 +13,7 @@ public class NetworkedServer : MonoBehaviour
     public bool p1Won, p2Won;
     public bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
     bool xpos1, xpos2, xpos3, xpos4, xpos5, xpos6, xpos7, xpos8, xpos9;
+    public int MoveCounter, Move1, Move2, Move3, Move4, Move5, Move6, Move7, Move8, Move9;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,76 @@ public class NetworkedServer : MonoBehaviour
         {
             p1Won = true;
         }
+        if (pos4 && pos5 && pos6)
+        {
+            p1Won = true;
+        }
+        if (pos4 && pos5 && pos6)
+        {
+            p1Won = true;
+        }
+        if (pos7 && pos8 && pos9)
+        {
+            p1Won = true;
+        }
+        if (pos1 && pos4 && pos7)
+        {
+            p1Won = true;
+        }
+        if (pos2 && pos5 && pos8)
+        {
+            p1Won = true;
+        }
+        if (pos3 && pos6 && pos9)
+        {
+            p1Won = true;
+        }
+        if (pos1 && pos5 && pos9)
+        {
+            p1Won = true;
+        }
+        if (pos3 && pos5 && pos7)
+        {
+            p1Won = true;
+        }
+        if (xpos1 && xpos2 && xpos3)
+        {
+            p2Won = true;
+        }
+        if (xpos4 && xpos5 && xpos6)
+        {
+            p2Won = true;
+        }
+        if (xpos4 && xpos5 && xpos6)
+        {
+            p2Won = true;
+        }
+        if (xpos7 && xpos8 && xpos9)
+        {
+            p2Won = true;
+        }
+        if (xpos1 && xpos4 && xpos7)
+        {
+            p2Won = true;
+        }
+        if (xpos2 && xpos5 && xpos8)
+        {
+            p2Won = true;
+        }
+        if (xpos3 && xpos6 && xpos9)
+        {
+            p2Won = true;
+        }
+        if (xpos1 && xpos5 && xpos9)
+        {
+            p2Won = true;
+        }
+        if (xpos3 && xpos5 && xpos7)
+        {
+            p2Won = true;
+        }
+
+
 
 
         switch (recNetworkEvent)
@@ -129,18 +200,61 @@ public class NetworkedServer : MonoBehaviour
                     pos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id+1);
+                    if(MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
 
                 }
                 if (id == 2)
                 {
-                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id);
-                    
+                    SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id);                   
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", id - 1);
                     xpos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
                     Debug.Log("it messed up");
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos1;
+                        MoveCounter++;
+                    }               
                 }
             }
         }
@@ -156,7 +270,31 @@ public class NetworkedServer : MonoBehaviour
                     pos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -166,7 +304,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos2;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -182,7 +339,31 @@ public class NetworkedServer : MonoBehaviour
                     pos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -192,7 +373,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos3;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -208,7 +408,31 @@ public class NetworkedServer : MonoBehaviour
                     pos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -218,7 +442,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos4;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -234,7 +477,31 @@ public class NetworkedServer : MonoBehaviour
                     pos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -244,7 +511,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos5;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -260,7 +546,31 @@ public class NetworkedServer : MonoBehaviour
                     pos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -270,7 +580,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos6;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -286,7 +615,31 @@ public class NetworkedServer : MonoBehaviour
                     pos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -296,7 +649,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos7;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -312,7 +684,31 @@ public class NetworkedServer : MonoBehaviour
                     pos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -322,7 +718,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos8;
+                        MoveCounter++;
+                    }
                 }
             }
         }
@@ -338,7 +753,31 @@ public class NetworkedServer : MonoBehaviour
                     pos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id + 1);
-
+                    if (MoveCounter == 0)
+                    {
+                        Move1 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 2)
+                    {
+                        Move3 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 4)
+                    {
+                        Move5 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 6)
+                    {
+                        Move7 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 8)
+                    {
+                        Move9 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
                 }
                 if (id == 2)
                 {
@@ -348,7 +787,26 @@ public class NetworkedServer : MonoBehaviour
                     xpos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-
+                    if (MoveCounter == 1)
+                    {
+                        Move2 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 3)
+                    {
+                        Move4 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 5)
+                    {
+                        Move6 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
+                    if (MoveCounter == 7)
+                    {
+                        Move8 = ClientToServerMoveSignifiers.Pos9;
+                        MoveCounter++;
+                    }
                 }
             }
         }
