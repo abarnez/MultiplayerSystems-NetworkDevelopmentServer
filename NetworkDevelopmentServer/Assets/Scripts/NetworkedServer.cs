@@ -9,6 +9,7 @@ public class NetworkedServer : MonoBehaviour
     int unreliableChannelID;
     int hostID;
     int socketPort = 5491;
+    int Timer;
     public int playersInRoom;
     public bool p1Won, p2Won;
     public bool pos1, pos2, pos3, pos4, pos5, pos6, pos7, pos8, pos9;
@@ -23,6 +24,7 @@ public class NetworkedServer : MonoBehaviour
         unreliableChannelID = config.AddChannel(QosType.Unreliable);
         HostTopology topology = new HostTopology(config, maxConnections);
         hostID = NetworkTransport.AddHost(topology, socketPort, null);
+        Timer = 2;
     }
 
     // Update is called once per frame
@@ -822,6 +824,20 @@ public class NetworkedServer : MonoBehaviour
     
     }
 
+    public void Replay()
+    {
+        if (Move1 == 1)
+        {
+            //send message to clients showing Circle on Pos1
+   
+            Timer = 2;
+        }
+        if (Move1 == 2)
+        {
+            //send message to clients showing Circle on Pos2 ...etc
+        }
+    }
+
     public static class ClientToServerChatSignifiers
     {
         public const int GG = 1;
@@ -931,5 +947,14 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int p1Won = 33;
         public const int p2Won = 34;
+    }
+
+    public static class ClientToServerRPSignifiers
+    {
+        public const int Replay = 35;
+    }
+    public static class ServerToClientRPSignifiers
+    {
+        public const int Replay = 35;
     }
 }
