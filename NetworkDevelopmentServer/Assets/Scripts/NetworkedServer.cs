@@ -110,7 +110,16 @@ public class NetworkedServer : MonoBehaviour
         {
             p2Won = true;
         }
-
+        if (p2Won)
+        {
+            SendMessageToClient(ServerToClientGOSignifiers.p2Won + "", 1);
+            SendMessageToClient(ServerToClientGOSignifiers.p2Won + "", 2);
+        }
+        if (p1Won)
+        {
+            SendMessageToClient(ServerToClientGOSignifiers.p1Won + "", 1);
+            SendMessageToClient(ServerToClientGOSignifiers.p1Won + "", 2);
+        }
 
 
 
@@ -810,6 +819,7 @@ public class NetworkedServer : MonoBehaviour
                 }
             }
         }
+    
     }
 
     public static class ClientToServerChatSignifiers
@@ -910,5 +920,16 @@ public class NetworkedServer : MonoBehaviour
     {
         public const int X = 31;
         public const int O = 32;
+    }
+
+    public static class ClientToServerGOSignifiers
+    {
+        public const int p1Won = 33;
+        public const int p2Won = 34;
+    }
+    public static class ServerToClientGOSignifiers
+    {
+        public const int p1Won = 33;
+        public const int p2Won = 34;
     }
 }
