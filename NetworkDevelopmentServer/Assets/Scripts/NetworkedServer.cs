@@ -10,7 +10,6 @@ public class NetworkedServer : MonoBehaviour
     int unreliableChannelID;
     int hostID;
     int socketPort = 5491;
-    public float Timer;
     public int playersInRoom;
     public bool p1Won, p2Won;
     bool MsgSent;
@@ -26,7 +25,6 @@ public class NetworkedServer : MonoBehaviour
         unreliableChannelID = config.AddChannel(QosType.Unreliable);
         HostTopology topology = new HostTopology(config, maxConnections);
         hostID = NetworkTransport.AddHost(topology, socketPort, null);
-        Timer = 2;
     }
 
     // Update is called once per frame
@@ -39,7 +37,6 @@ public class NetworkedServer : MonoBehaviour
         int bufferSize = 1024;
         int dataSize;
         byte error = 0;
-        Timer -= Time.deltaTime;
 
         NetworkEventType recNetworkEvent = NetworkTransport.Receive(out recHostID, out recConnectionID, out recChannelID, recBuffer, bufferSize, out dataSize, out error);
 
@@ -252,7 +249,6 @@ public class NetworkedServer : MonoBehaviour
                     xpos1 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
                     SendMessageToClient(ClientToServerTurnSignifiers.IsMyTurn + "", id - 1);
-                    Debug.Log("it messed up");
                     if (MoveCounter == 1)
                     {
                         Move2 = 1;
@@ -283,7 +279,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", id + 1);
                     pos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -317,7 +312,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", id - 1);
                     xpos2 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -352,7 +346,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", id + 1);
                     pos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -386,7 +379,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", id - 1);
                     xpos3 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -421,7 +413,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", id + 1);
                     pos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -455,7 +446,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", id - 1);
                     xpos4 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -490,7 +480,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", id + 1);
                     pos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -524,7 +513,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", id - 1);
                     xpos5 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -559,7 +547,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", id + 1);
                     pos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -593,7 +580,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", id - 1);
                     xpos6 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -628,7 +614,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", id + 1);
                     pos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -662,7 +647,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", id - 1);
                     xpos7 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -697,7 +681,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", id + 1);
                     pos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -731,7 +714,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", id - 1);
                     xpos8 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -766,7 +748,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 1)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", id + 1);
                     pos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -800,7 +781,6 @@ public class NetworkedServer : MonoBehaviour
                 if (id == 2)
                 {
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id);
-                    Debug.Log("it fired");
                     SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", id - 1);
                     xpos9 = true;
                     SendMessageToClient(ClientToServerTurnSignifiers.NotMyTurn + "", id);
@@ -838,63 +818,52 @@ public class NetworkedServer : MonoBehaviour
     }
     IEnumerator ExampleCoroutine()
     {
-        //Print the time of when the function is first called.
         if (Move1 != 0)
         {
             if (Move1 == 1)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 2);
-                Debug.Log("we got here");
-                Timer = 2;
             }
             if (Move1 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move1 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
         }
 
@@ -906,57 +875,47 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 2);
-                Timer = 2;
 
             }
             if (Move2 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 2);
-                Timer = 2;
-                Debug.Log("we got here");
             }
             if (Move2 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move2 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
         }
 
@@ -967,57 +926,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 2);
-                Timer = 2;
-                Debug.Log("we got here");
             }
             if (Move3 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 2);
-                Timer = 2;
-                Debug.Log("we got here 3");
             }
             if (Move3 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move3 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1027,55 +975,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move4 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1085,55 +1024,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move5 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1143,55 +1073,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move6 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1201,55 +1122,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move7 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1259,55 +1171,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move8 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers2.Pos9 + "", 2);
-                Timer = 2;
             }
         }
         yield return new WaitForSeconds(2);
@@ -1317,55 +1220,46 @@ public class NetworkedServer : MonoBehaviour
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos1 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 2)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos2 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 3)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos3 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 4)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos4 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 5)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos5 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 6)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos6 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 7)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos7 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 8)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos8 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
             if (Move9 == 9)
             {
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 1);
                 SendMessageToClient(ClientToServerMoveSignifiers.Pos9 + "", 2);
-                Timer = 2;
             }
         }
     }
